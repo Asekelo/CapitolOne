@@ -4,7 +4,7 @@
 using namespace std;
 #ifndef USER_H
 #define USER_H
-class Person
+class User
 {
 	protected:
 		int ID;
