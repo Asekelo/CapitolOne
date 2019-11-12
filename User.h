@@ -21,6 +21,7 @@ class User
 		void setaccountName(string);
     		void setaccountPassword(string);
 		void setID(int);
+		void setSecurity(int);
 	
 		//accessors
 		string getUserName();
