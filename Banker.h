@@ -11,7 +11,7 @@ class Banker: public User{
 		double deposit;
     double withdraw;
 	public:
-		Student();
+		Banker();
 		void setWithdraw(double);
     void setDeposit(double;
 		void print();	
