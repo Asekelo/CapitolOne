@@ -1,23 +1,25 @@
-
 //Banker.cpp
 
 #include"Banker.h"
 
-Banker::Banker(){
-	setDeposit(0);
-}
-	setWithdraw(0);
-}
-void Banker::setDeposit(double deposit)
+Banker::Banker()
 {
-	this ->deposit = deposit;
+	setSecurity(1);
+	setAccountName("");
+	setAccountPassword("");
+	setID(0);
 }
-void Banker::setWithdraw(double name)
+
+Banker::Banker(string accountName, string accountPassword, int id)
 {
-	this -> withdraw = withdraw;
-void Banker::print(){
-	cout <<"This Customer has this information:\n"
-		<<"Deposit amount: "<<deposit<<"\n"
-		<<"Withdraw amount: "<<withdraw<<"\n"
-		<<"ID = "<<ID<<endl;
+	setSecurity(1);
+	setAccountName(accountName);
+	setAccountPassword(accountPassword);
+	setID(id);
+}
+
+string Banker::print() const 
+{
+	string message = User::print() + "Security Level: " + getSecurityString() + "\n";
+	return message;
 }
