@@ -15,7 +15,7 @@ void Customer::setName(string name)
 {
 	this ->name = name;
 }
-void Student::print(){
+void Customer::print(){
 	cout <<"This Customer has this information:\n"
 		<<"Name: "<<name<<"\n"
 		<<"address: "<<address<<"\n"
