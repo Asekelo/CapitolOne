@@ -29,7 +29,7 @@ class User
 		int getSecurity();
 	
 		//polymorphic
-		virtual void print();
+		virtual string print();
 };
 
 #endif
