@@ -10,7 +10,7 @@ class Customer: public User{
 		string name;
     string address;
 	public:
-		Student();
+		Customer();
 		void setName(string);
     void setAddress(string);
 		void print();	
