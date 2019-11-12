@@ -1,22 +1,35 @@
 //User.h
-#include<iostream>
+
 #include<string>
 using namespace std;
+
 #ifndef USER_H
 #define USER_H
+
 class User
 {
 	protected:
-		int ID;
-		string accountName;
-    string accountPassword;
+		int id, security;
+		string accountName, accountPassword;
 		
 	public:
+		//constructors
 		User();
+		User(string, string, int);
+	
+		//mutators
 		void setaccountName(string);
-    void setaccountPassword(string);
+    		void setaccountPassword(string);
 		void setID(int);
-		virtual void print() ;
+	
+		//accessors
+		string getUserName();
+		string getPassWord();
+		int getid();
+		int getSecurity();
+	
+		//polymorphic
+		virtual void print();
 };
 
 #endif
