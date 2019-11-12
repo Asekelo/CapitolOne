@@ -5,8 +5,8 @@
 Banker::Banker()
 {
 	setSecurity(1);
-	setAccountName("");
-	setAccountPassword("");
+	setAccountName("banker");
+	setAccountPassword("customerIsRight");
 	setID(0);
 }
 
