@@ -26,7 +26,7 @@ class User
 		//accessors
 		string getUserName();
 		string getPassWord();
-		int getid();
+		int getID();
 		int getSecurity();
 	
 		//polymorphic
