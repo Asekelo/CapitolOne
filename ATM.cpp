@@ -1,5 +1,5 @@
-ATM.cpp
-#include "ATM.cpp"
+//ATM.cpp
+#include "ATM.h"
 
 ATM::ATM(){
 	setDeposit(0);
