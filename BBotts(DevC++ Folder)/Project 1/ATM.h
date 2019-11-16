@@ -2,6 +2,7 @@
 //ATM.h
 #include<iostream>
 #include "Customer.h"
+#include "Banker.h"
 using namespace std;
 
 double depositFunction(double account, double deposit) {
