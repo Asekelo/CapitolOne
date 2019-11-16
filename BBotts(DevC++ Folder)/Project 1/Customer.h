@@ -36,6 +36,7 @@ class Customer: public User{
 		int getBirthMonth() const;
 		int getBirthYear() const;
 		string getBirthDate() const;
+		string printAccounts() const;
 		
 		//polymorphic
 		string print() const;	

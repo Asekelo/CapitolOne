@@ -119,6 +119,13 @@ string Customer::getBirthDate() const
 	return dob;
 }
 
+string Customer::printAccounts() const
+{
+	string message = "";
+	message = "Checking Balance: " + getCheckingString() + "\n\nSavings Balance: " + getSavingString() + "\n";
+	return message;
+}
+
 //polymorphic
 string Customer::print() const
 {
