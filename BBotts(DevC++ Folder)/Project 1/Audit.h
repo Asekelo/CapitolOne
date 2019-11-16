@@ -40,6 +40,24 @@ void saveLogin(string uName, string pWord, string success) {
 	master.close();
 }
 
+void saveLogout(string uName) {
+	ofstream master, logout;
+	char key = 'l';
+	logout.open("loginAttempts.txt", ios::app);
+	master.open("history.txt", ios::app);
+	string message = tell() + "\tU: " + uName + "\t<-- Logged Out\n";
+	string encrypt = "";
+	
+	for (int i = 0; i < message.length(); i++) {
+		encrypt += message[i] ^ key;
+	}
+	
+	logout << encrypt;
+	master << encrypt;
+	logout.close();
+	master.close();
+}
+
 void saveTransaction(string id, string account, string result) {
 	ofstream master, trans;
 	char key = 'l';
@@ -94,7 +112,7 @@ void logins() {
 		}
 	}
 	else {
-		cout << "Unable to find login attempts file!" << endl;
+		cout << "Unable to find Logins file!" << endl;
 	}
 	login.close();
 	system("PAUSE");
@@ -134,7 +152,7 @@ void auditMenu(int security){
 		system("CLS");
 		cout << "========== Audit =========="
 			 << "\n1. View History"
-			 << "\n2. View Login Attempts"
+			 << "\n2. View Logins"
 			 << "\n3. View Transactions"
 			 << "\n-1. EXIT" << endl;
 		cin >> choice;
