@@ -5,10 +5,10 @@
 #include <ctime>
 #include <sstream>
 #include <fstream>
-#include "Banker.h"
-#include "Admin.h"
-#include "Customer.h"
 using namespace std;
+
+#ifndef AUDIT_H
+#define AUDIT_H
 
 string tell() {
 	time_t log;
@@ -40,6 +40,24 @@ void saveLogin(string uName, string pWord, string success) {
 	master.close();
 }
 
+void saveTransaction(string id, string account, string result) {
+	ofstream master, trans;
+	char key = 'l';
+	trans.open("transactions.txt", ios::app);
+	master.open("history.txt", ios::app);
+	string message = tell() + "\tID: " + id + "\tAccount Type: " + account + "\tResulting Balance: " + result + "\n";
+	string encrypt = "";
+	
+	for (int i = 0; i < message.length(); i++) {
+		encrypt += message[i] ^ key;
+	}
+	
+	trans << encrypt;
+	master << encrypt;
+	trans.close();
+	master.close();
+}
+
 void history() {
 	system("CLS");
 	string decrypt = "";
@@ -47,7 +65,7 @@ void history() {
 	ifstream master ("history.txt");
 	if (master.is_open()) {
 		char key = 'l';
-		while (getline(master, line)) {
+		while (getline(master, line, '\n')) {
 			for(int i = 0; i < line.length(); i++) {
 				decrypt += line[i] ^ key;
 			}
@@ -68,7 +86,7 @@ void logins() {
 	ifstream login ("loginAttempts.txt");
 	if (login.is_open()) {
 		char key = 'l';
-		while (getline(login, line)) {
+		while (getline(login, line, '\n')) {
 			for(int i = 0; i < line.length(); i++) {
 				decrypt += line[i] ^ key;
 			}
@@ -79,6 +97,27 @@ void logins() {
 		cout << "Unable to find login attempts file!" << endl;
 	}
 	login.close();
+	system("PAUSE");
+}
+
+void trans() {
+	system("CLS");
+	string decrypt = "";
+	string line = "";
+	ifstream trans ("transactions.txt");
+	if (trans.is_open()) {
+		char key = 'l';
+		while (getline(trans, line, '\n')) {
+			for(int i = 0; i < line.length(); i++) {
+				decrypt += line[i] ^ key;
+			}
+			cout << decrypt << endl;
+		}
+	}
+	else {
+		cout << "Unable to find transactions file!" << endl;
+	}
+	trans.close();
 	system("PAUSE");
 }
 
@@ -96,6 +135,7 @@ void auditMenu(int security){
 		cout << "========== Audit =========="
 			 << "\n1. View History"
 			 << "\n2. View Login Attempts"
+			 << "\n3. View Transactions"
 			 << "\n-1. EXIT" << endl;
 		cin >> choice;
 			switch (choice) {
@@ -105,6 +145,9 @@ void auditMenu(int security){
 				case 2:
 					logins();
 					break;
+				case 3:
+					trans();
+					break;
 				case -1:
 					system("CLS");
 					cout << "Exiting Audit." << endl;
@@ -113,3 +156,5 @@ void auditMenu(int security){
 			}
 	}
 }
+
+#endif

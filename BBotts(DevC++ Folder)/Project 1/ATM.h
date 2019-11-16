@@ -3,7 +3,11 @@
 #include<iostream>
 #include "Customer.h"
 #include "Banker.h"
+#include "Audit.h"
 using namespace std;
+
+#ifndef ATM_H
+#define ATM_H
 
 double depositFunction(double account, double deposit) {
 	double total = account + deposit;
@@ -50,9 +54,11 @@ void depositMenu(Customer* cPTR) {
 		switch (choice) {
 			case 1:
 				cPTR -> setChecking(depositFunction(cPTR -> getCheckingBalance(), deposit));
+				saveTransaction(cPTR -> getIDString(), "Ch", cPTR -> getCheckingString());
 				break;
 			case 2:
 				cPTR -> setSaving(depositFunction(cPTR -> getSavingBalance(), deposit));
+				saveTransaction(cPTR -> getIDString(), "Sa", cPTR -> getSavingString());
 				break;
 		}
 		return;
@@ -90,9 +96,11 @@ void withdrawlMenu(Customer* cPTR) {
 		switch (choice) {
 			case 1:
 				cPTR -> setChecking(withdrawlFunction(cPTR -> getCheckingBalance(), withdraw));
+				saveTransaction(cPTR -> getIDString(), "Ch", cPTR -> getCheckingString());
 				break;
 			case 2:
 				cPTR -> setSaving(withdrawlFunction(cPTR -> getSavingBalance(), withdraw));
+				saveTransaction(cPTR -> getIDString(), "Sa", cPTR -> getSavingString());
 				break;
 		}
 		return;
@@ -137,3 +145,5 @@ void atmMenu(int security, Customer* cPTR) {
 		}
 	}
 }
+
+#endif
