@@ -3,7 +3,11 @@
 #include<iostream>
 #include "Customer.h"
 #include "Banker.h"
+#include "Audit.h"
 using namespace std;
+
+#ifndef ATM_H
+#define ATM_H
 
 double depositFunction(double account, double deposit) {
 	double total = account + deposit;
@@ -13,6 +17,7 @@ double depositFunction(double account, double deposit) {
 double withdrawlFunction(double account, double withdrawl) {
 	if (withdrawl > account) {
 		cout << "Cannot Overdraft!" << endl;
+		system("PAUSE");
 		return account;
 	}
 	double total = account - withdrawl;
@@ -28,7 +33,7 @@ void depositMenu(Customer* cPTR) {
 		cout << "========= Deposit =========="
 			 << "\n1. Checking Account" 
 			 << "\n2. Savings Account"
-			 << "\n3. Sign Out" << endl;
+			 << "\n3. Back to ATM" << endl;
 		cin >> choice;
 		switch (choice) {
 			case 3:
@@ -45,14 +50,16 @@ void depositMenu(Customer* cPTR) {
 			deposit = 0.00;
 			cout << "========= Deposit ==========\nDeposit amount cannot be negative!" << endl;
 			system("PAUSE");
-			depositMenu(cPTR);
+			depositMenu(cPTR); //-----------------------------------------------Recursion------------------
 		}
 		switch (choice) {
 			case 1:
 				cPTR -> setChecking(depositFunction(cPTR -> getCheckingBalance(), deposit));
+				saveTransaction(cPTR -> getIDString(), "Ch", cPTR -> getCheckingString());
 				break;
 			case 2:
 				cPTR -> setSaving(depositFunction(cPTR -> getSavingBalance(), deposit));
+				saveTransaction(cPTR -> getIDString(), "Sa", cPTR -> getSavingString()); //The letter v results in a false newline when saving
 				break;
 		}
 		return;
@@ -90,9 +97,11 @@ void withdrawlMenu(Customer* cPTR) {
 		switch (choice) {
 			case 1:
 				cPTR -> setChecking(withdrawlFunction(cPTR -> getCheckingBalance(), withdraw));
+				saveTransaction(cPTR -> getIDString(), "Ch", cPTR -> getCheckingString());
 				break;
 			case 2:
 				cPTR -> setSaving(withdrawlFunction(cPTR -> getSavingBalance(), withdraw));
+				saveTransaction(cPTR -> getIDString(), "Sa", cPTR -> getSavingString());
 				break;
 		}
 		return;
@@ -110,7 +119,7 @@ void atmMenu(int security, Customer* cPTR) {
 	int choice = 0;
 	while (choice != 4) {
 		system("CLS");
-		cout << "========== ATM ==========="
+		cout << "========== Welcome back, " << cPTR -> getFullName() << " ==========="
 			 << "\n1. Deposit"
 			 << "\n2. Withdrawl"
 			 << "\n3. View Balances"
@@ -137,3 +146,5 @@ void atmMenu(int security, Customer* cPTR) {
 		}
 	}
 }
+
+#endif
