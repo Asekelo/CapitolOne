@@ -50,7 +50,7 @@ void depositMenu(Customer* cPTR) {
 			deposit = 0.00;
 			cout << "========= Deposit ==========\nDeposit amount cannot be negative!" << endl;
 			system("PAUSE");
-			depositMenu(cPTR); //-----------------------------------------------Recursion------------------
+			depositMenu(cPTR); //-------------------------------------------Recursion-------------------------------------
 		}
 		switch (choice) {
 			case 1:
