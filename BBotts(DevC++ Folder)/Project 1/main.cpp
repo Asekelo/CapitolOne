@@ -26,7 +26,7 @@ bankerMenu(Banker* bPTR, Customer* cPTR) {
 				else{
 					cout << "No Accounts with that ID Number." << endl;
 					system("PAUSE");
-					bankerMenu(bPTR, cPTR); //-------------------------------------------------------------------Recursion---------------------
+					bankerMenu(bPTR, cPTR); //-------------------------------------------Recursion---------------------
 				}
 				break;
 			case 2:
@@ -42,14 +42,14 @@ bankerMenu(Banker* bPTR, Customer* cPTR) {
 }
 
 int main(int argc, char** argv) {
-//================================================================================================== C U S T O M E R ==========================
+//========================================================================== C U S T O M E R ==========================
 	
 	Customer* me = new Customer("a-mei-zhang", "iceIceBaby#C001", 9, "Mei-Ling", "Zhou", "2425 14th Street NW", 400.39, 14295.73, 24, 5, 1985);
 	saveLogin(me -> getAccountName(), me -> getAccountPassword(), "yes"); // <-- The letter f makes the save files drop characters
 	atmMenu(me -> getSecurity(), me);
 	saveLogout(me -> getFullName());
 	
-//================================================================================================== B A N K E R ==============================
+//========================================================================== B A N K E R ==============================
 	
 	Banker* Elias = new Banker("HSchampions", "hardWork&Dedication#42", 42);
 	saveLogin(Elias -> getAccountName(), "I'mDbest'", "no");
@@ -58,7 +58,7 @@ int main(int argc, char** argv) {
 	bankerMenu(Elias, me);
 	saveLogout(Elias -> getAccountName());
 
-//================================================================================================== A D M I N ================================
+//========================================================================== A D M I N ================================
 
 	Admin* admin = new Admin();
 	saveLogin(admin -> getAccountName(), admin -> getAccountPassword(), "yes");
