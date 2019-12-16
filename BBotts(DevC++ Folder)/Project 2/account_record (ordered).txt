@@ -1,0 +1,10 @@
+1111,passwd,1,Ryuichi,Ikegami,105 Adams Court,Largo,MD,17,09,1989,10105.00,500.00
+1234,passwd,0,Michael,Chapman,1916 Tall Timber Court,Fort Washington,MD,02,01,1977,1206.00,800.00
+2222,passwd,2,Barron,Botts,2425 14th Street NW,,DC,11,06,1996,11205.00,3005.00
+2345,passwd,0,Andy,Taylor,700 Elm St,Mayberry,NC,10,06,1963,1000.00,200.00
+3001,passwd,0,Donald,Simpson,1021 Fernwood Rd.,Bowie,MD,11,03,1988,105.00,370.00
+4233,passwd,0,Devin,Johnson,5415 Water St.,Upper Marlboro,MD,12,06,1990,220.00,50.00
+5211,passwd,0,Arron,Thompson,507 Rockwook Dr.,College Park,MD,10,04,1991,820.00,150.00
+6201,passwd,0,Larry,Wright,8555 16th St.,Landover,MD,07,08,1992,630.00,1000.00
+7803,passwd,0,Kevin,Arnold,9680 Baltimore Ave.,Hyattsville,MD,30,01,1994,12100.00,2250.00
+8499,passwd,0,Karen,Winter,2304 3rd Street,College Park,MD,20,04,1985,350.00,4010.00

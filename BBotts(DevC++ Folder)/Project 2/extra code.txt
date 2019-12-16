@@ -1,0 +1,44 @@
+    /*
+      cin >> client_account.acct_name[0];
+      
+      
+      cout << "\n\n             Enter the first name on the account: ";
+      cin >> client_account.acct_name[1];
+      
+      cout << "\n\n             Enter the middle initial (Enter \"N/A\" for no middle initial): ";
+      cin >> client_account.acct_name[2];
+     
+     */      	
+	
+	// cout << "\n\nIt Works!!" << endl;
+	// system("PAUSE");
+
+
+
+Encryption Code:
+
+    /*
+    acct_out.open("account_record.txt");
+    
+	string message = "";
+	string encrypt = "";
+	char key = 'l';
+	
+	for (int cnt = 0; cnt < i; cnt++)
+	{
+       message = all_records[cnt];
+	// for (int i = 0; i < message.length(); i++) {
+       for (int l = 0; l < message.length(); l++) 
+       {
+		   encrypt += message[l] ^ key;
+       }
+       acct_out << encrypt << endl;
+       encrypt = "";
+       // cout << all_records[cnt] << endl;
+    }
+
+	acct_out.close();
+	
+	system("PAUSE");
+    	
+    */
